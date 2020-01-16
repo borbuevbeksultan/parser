@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '0.1'
+
+sourceCompatibility = 12
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.10'
+    annotationProcessor 'org.projectlombok:lombok:1.18.10'
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+    implementation group: 'com.sun.xml.bind', name: 'jaxb-core', version: '2.3.0.1'
+    implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
+    implementation group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.3.1'
+    runtime group: 'org.glassfish.jaxb', name: 'jaxb-runtime', version: '2.3.2'
+    implementation 'com.google.code.gson:gson:2.8.6'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'kg.krsu.Program'
+    }
+    from { configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) } }
+}

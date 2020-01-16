@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<problem revision="15" short-name="dungeon" url="https://polygon.codeforces.com/p0dFstv/gshark/dungeon">
+    <names>- имя
+        <name language="russian" value="Подземелье для принцесс"/>
+    </names>
+    <statements>
+<!--        - текст задачи-->
+        <statement charset="UTF-8" language="russian" path="statements/russian/problem.tex" type="application/x-tex"/>
+        <statement language="russian" path="statements/.pdf/russian/problem.pdf" type="application/pdf"/>
+    </statements>
+    <tutorials>- разбор решения
+        <tutorial charset="UTF-8" language="russian" path="statements/russian/tutorial.tex" type="application/x-tex"/>
+        <tutorial language="russian" path="statements/.pdf/russian/tutorial.pdf" type="application/pdf"/>
+        <tutorial charset="UTF-8" language="russian" path="statements/.html/russian/tutorial.html" type="text/html"/>
+    </tutorials>
+    <judging cpu-name="Intel(R) Core(TM) i5-3450 CPU @ 3.10GHz" cpu-speed="3100" input-file="" output-file="">- оценка решения и конфигурация системы, так же можно задать чтение из
+        файлов
+        <testset name="tests">- тесты
+            <time-limit>2000</time-limit>
+            - тайм лимит в милисекундах
+            <memory-limit>268435456</memory-limit>
+            - размер памяти в байтах
+            <test-count>51</test-count>
+            - количество тестов
+            <input-path-pattern>tests/%02d</input-path-pattern>
+            - формат имени файла для нумерации тестов
+            <answer-path-pattern>tests/%02d.a</answer-path-pattern>
+            <tests>
+                <test group="0" method="manual" sample="true"/>
+                - тест
+                <test group="0" method="manual" sample="true"/>
+                <test group="0" method="manual" sample="true"/>
+                <test cmd="gen 4" from-file="4" group="1" method="generated"/>
+                - здесь задается генератор для тестов
+                <test cmd="gen 4" from-file="5" group="1" method="generated"/>
+            </tests>
+        </testset>
+    </judging>
+    <files>
+        <resources>- ресурсы для задачи
+            <file path="files/olymp.sty"/>
+            <file path="files/problem.tex"/>
+            <file path="files/statements.ftl"/>
+            <file path="files/testlib.h" type="h.g++"/>
+            <file path="files/tutorial.tex"/>
+        </resources>
+        <executables>- исполняемые файлы: генератор, чекер и т.д.
+            <executable>
+                <source path="files/gen.cpp" type="cpp.g++17"/>
+                <binary path="files/gen.exe" type="exe.win32"/>
+            </executable>
+            <executable>
+                <source path="files/validate.cpp" type="cpp.g++"/>
+                <binary path="files/validate.exe" type="exe.win32"/>
+            </executable>
+        </executables>
+    </files>
+    <assets>
+        <checker name="std::ncmp.cpp" type="testlib">
+            <source path="files/check.cpp" type="cpp.g++"/>
+            <binary path="check.exe" type="exe.win32"/>
+            <copy path="check.cpp"/>
+            <testset>
+                <test-count>0</test-count>
+                <input-path-pattern>files/tests/checker-tests/%02d</input-path-pattern>
+                <output-path-pattern>files/tests/checker-tests/%02d.o</output-path-pattern>
+                <answer-path-pattern>files/tests/checker-tests/%02d.a</answer-path-pattern>
+                <tests/>
+            </testset>
+        </checker>
+        <validators>- валидатор тестов на правильность ограничений
+            <validator>
+                <source path="files/validate.cpp" type="cpp.g++"/>
+                <binary path="files/validate.exe" type="exe.win32"/>
+                <testset>
+                    <test-count>18</test-count>
+                    <input-path-pattern>files/tests/validator-tests/%02d</input-path-pattern>
+                    <tests>
+                        <test verdict="invalid"/>
+                    </tests>
+                </testset>
+            </validator>
+        </validators>
+        <solutions>- решения с вердиктами
+            <solution tag="accepted">
+                <source path="solutions/dungeon_ad.cpp" type="cpp.g++17"/>
+                <binary path="solutions/dungeon_ad.exe" type="exe.win32"/>
+            </solution>
+            <solution tag="main">
+                <source path="solutions/dungeon_gs.cpp" type="cpp.g++17"/>
+                <binary path="solutions/dungeon_gs.exe" type="exe.win32"/>
+            </solution>
+            <solution tag="wrong-answer">
+                <source path="solutions/dungeon_gs_wa.cpp" type="cpp.g++17"/>
+                <binary path="solutions/dungeon_gs_wa.exe" type="exe.win32"/>
+            </solution>
+            <solution tag="wrong-answer">
+                <source path="solutions/dungeon_gs_wa1.cpp" type="cpp.g++17"/>
+                <binary path="solutions/dungeon_gs_wa1.exe" type="exe.win32"/>
+            </solution>
+        </solutions>
+    </assets>
+    <properties>
+        <property name="tests-wellformed" value="true"/>
+    </properties>
+    <stresses>- стресс тесты
+        <stress-count>0</stress-count>
+        <stress-path-pattern>stresses/%03d</stress-path-pattern>
+        <list/>
+    </stresses>
+    <documents>- краткое описание
+        <document path="documents/description.txt" type="text/plain"/>
+        <document path="documents/tutorial.txt" type="text/plain"/>
+    </documents>
+    <tags>
+        <tag value="realization"/>
+    </tags>
+</problem>
